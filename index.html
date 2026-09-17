@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terra &amp; Thyme Community Garden Collective</title>
+<meta name="description" content="Terra & Thyme is a community garden collective offering plot rentals, growing workshops, and volunteer days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-bg: #F3F6EF;
+    --color-bg-alt: #E7EEE1;
+    --color-ink: #1E2A1F;
+    --color-ink-soft: #45543F;
+    --color-primary: #2F5233;
+    --color-primary-dark: #203A24;
+    --color-accent: #B9852E;
+    --color-accent-dark: #8F6621;
+    --color-line: #D3CEB9;
+    --color-card-bg: #FBFAF5;
+    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-body: "Libre Franklin", "Segoe UI", Arial, sans-serif;
+    --radius: 4px;
+    --max-width: 72rem;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body{
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    font-size: 1rem;
+  }
+
+  h1, h2, h3{
+    font-family: var(--font-display);
+    color: var(--color-primary-dark);
+    line-height: 1.15;
+    margin: 0 0 0.6em;
+    font-weight: 500;
+  }
+
+  h1{ font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 600; }
+  h2{ font-size: clamp(1.5rem, 3vw, 2rem); }
+  h3{ font-size: 1.15rem; }
+
+  p{ margin: 0 0 1em; max-width: 62ch; }
+
+  a{ color: var(--color-accent-dark); }
+  a:hover{ color: var(--color-primary-dark); }
+
+  img{ max-width: 100%; display: block; }
+
+  /* Accessible focus states, visible for keyboard users */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible{
+    outline: 3px solid var(--color-accent-dark);
+    outline-offset: 2px;
+  }
+
+  .skip-link{
+    position: absolute;
+    left: -999px;
+    top: auto;
+    background: var(--color-primary-dark);
+    color: #fff;
+    padding: 0.75em 1.25em;
+    z-index: 100;
+    border-radius: var(--radius);
+  }
+  .skip-link:focus{
+    left: 1rem;
+    top: 1rem;
+  }
+
+  .wrap{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---------- Header / Nav ---------- */
+  header.site-header{
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+  }
+  .brand{
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  .brand-mark{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--color-primary-dark);
+  }
+  .brand-tag{
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+  }
+  nav.primary-nav ul{
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  nav.primary-nav a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    padding: 0.35em 0.1em;
+    border-bottom: 2px solid transparent;
+  }
+  nav.primary-nav a:hover,
+  nav.primary-nav a:focus-visible{
+    border-bottom-color: var(--color-accent);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: clamp(3rem, 8vw, 6rem) 0;
+  }
+  .hero .wrap{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-eyebrow{
+    color: var(--color-accent-dark);
+    font-weight: 600;
+    margin: 0 0 0.75em;
+  }
+  .hero-lede{
+    font-size: 1.15rem;
+    color: var(--color-ink-soft);
+  }
+  .cta-row{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  .btn{
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.85em 1.6em;
+    border-radius: var(--radius);
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .btn-primary{
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .btn-primary:hover{ background: var(--color-primary-dark); }
+  .btn-secondary{
+    background: transparent;
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary);
+  }
+  .btn-secondary:hover{ background: var(--color-bg-alt); }
+
+  .hero-figure{
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+  }
+
+  /* ---------- Generic section rhythm ---------- */
+  section{
+    padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+  }
+  section.alt{
+    background: var(--color-bg-alt);
+  }
+  .section-head{
+    max-width: 42rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .about-stat{
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1rem;
+  }
+  .about-stat strong{
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-primary-dark);
+  }
+
+  /* ---------- Programs ---------- */
+  .programs-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+  .program-card{
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+  }
+  .program-icon{
+    width: 44px;
+    height: 44px;
+    margin-bottom: 1rem;
+  }
+  .program-card p{ color: var(--color-ink-soft); font-size: 0.97rem; }
+
+  /* ---------- Testimonial ---------- */
+  .testimonial{
+    max-width: 46rem;
+  }
+  blockquote{
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    color: var(--color-primary-dark);
+    margin: 0 0 1rem;
+    font-style: italic;
+  }
+  .testimonial cite{
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Form ---------- */
+  .form-shell{
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    max-width: 40rem;
+  }
+  .field{
+    margin-bottom: 1.35rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .field label{
+    font-weight: 600;
+    margin-bottom: 0.4em;
+  }
+  .hint{
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+    margin: 0.25em 0 0;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea{
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.65em 0.75em;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--color-ink);
+  }
+  textarea{ resize: vertical; min-height: 6rem; }
+  fieldset{
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem 1.2rem;
+    margin: 0 0 1.35rem;
+  }
+  legend{
+    font-weight: 600;
+    padding: 0 0.4em;
+  }
+  .radio-option{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.4em 0;
+    font-weight: 400;
+  }
+  .required-flag{
+    color: var(--color-accent-dark);
+  }
+  #form-status{
+    margin-top: 1rem;
+    padding: 0.85em 1em;
+    border-radius: var(--radius);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-line);
+    display: none;
+  }
+  #form-status.visible{ display: block; }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background: var(--color-primary-dark);
+    color: #EDEFE6;
+    padding: 3rem 0 2rem;
+  }
+  footer.site-footer h3{ color: #fff; font-size: 1.05rem; }
+  footer.site-footer a{ color: #D9E4D2; }
+  footer.site-footer a:hover{ color: #fff; }
+  .footer-grid{
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .footer-grid ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-grid li{ margin-bottom: 0.5em; }
+  .footer-base{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1.25rem;
+    font-size: 0.85rem;
+    color: #B9C4AF;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .about-grid{ grid-template-columns: 1fr 1fr; }
+    .programs-grid{ grid-template-columns: 1fr; }
+    .footer-grid{ grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px){
+    .about-grid{ grid-template-columns: 1fr; }
+    .header-inner{ flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">Terra &amp; Thyme</span>
+      <span class="brand-tag">Community Garden Collective</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#join">Get involved</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section class="hero" id="top" aria-labelledby="hero-heading">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">A garden for the whole neighborhood</p>
+        <h1 id="hero-heading">Grow something real, together, one raised bed at a time.</h1>
+        <p class="hero-lede">Terra &amp; Thyme turns an unused city lot into shared growing space &mdash; plots you can rent, workshops that teach you to use them well, and volunteer days that keep the whole garden thriving.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#join">Reserve a plot</a>
+          <a class="btn btn-secondary" href="#programs">See our programs</a>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 380'%3E%3Crect width='480' height='380' fill='%23E7EEE1'/%3E%3Crect x='40' y='230' width='400' height='110' rx='6' fill='%238C6A3A'/%3E%3Crect x='40' y='230' width='400' height='18' fill='%236B4F2A'/%3E%3Cg fill='%232F5233'%3E%3Cpath d='M110 230 C90 170 130 120 110 70 C150 120 150 180 130 230 Z'/%3E%3Cpath d='M240 230 C210 160 260 110 240 50 C290 110 280 180 260 230 Z'/%3E%3Cpath d='M360 230 C340 170 380 130 360 80 C400 130 390 190 380 230 Z'/%3E%3C/g%3E%3Cg fill='%23B9852E'%3E%3Ccircle cx='110' cy='95' r='9'/%3E%3Ccircle cx='245' cy='75' r='9'/%3E%3Ccircle cx='368' cy='100' r='9'/%3E%3C/g%3E%3C/svg%3E" alt="Illustration of three raised garden beds with tall green plants and golden flower buds">
+      </figure>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="about-heading">Why the garden exists</h2>
+        <p>We started with one vacant lot and a handful of neighbors who wanted somewhere to grow food. Six seasons later, Terra &amp; Thyme is a member-run collective: everyone who rents a bed also helps keep the shared paths, tools, and compost running.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-stat">
+          <strong>64</strong>
+          <span>growing beds tended by members</span>
+        </div>
+        <div class="about-stat">
+          <strong>12</strong>
+          <span>free workshops held each year</span>
+        </div>
+        <div class="about-stat">
+          <strong>1,100&nbsp;lb</strong>
+          <span>produce donated to the community pantry last season</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="programs" aria-labelledby="programs-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="programs-heading">Three ways to get your hands in the soil</h2>
+        <p>Pick whichever fits how much time and space you have right now &mdash; you can always switch later.</p>
+      </div>
+      <div class="programs-grid">
+
+        <article class="program-card">
+          <img class="program-icon" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='6' y='30' width='36' height='10' rx='2' fill='%238C6A3A'/%3E%3Cpath d='M14 30 C10 20 18 12 14 4 C22 12 22 22 18 30 Z' fill='%232F5233'/%3E%3Cpath d='M28 30 C24 22 32 16 28 6 C36 16 34 24 32 30 Z' fill='%232F5233'/%3E%3C/svg%3E" alt="Icon of a raised garden bed with two plants">
+          <h3>Plot rental</h3>
+          <p>A 4&times;8 raised bed of your own, water access, and a shared tool shed. Beds are assigned seasonally and include a starter soil test.</p>
+        </article>
+
+        <article class="program-card">
+          <img class="program-icon" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='8' y='8' width='32' height='24' rx='2' fill='none' stroke='%232F5233' stroke-width='2.5'/%3E%3Cline x1='14' y1='16' x2='34' y2='16' stroke='%23B9852E' stroke-width='2.5'/%3E%3Cline x1='14' y1='22' x2='30' y2='22' stroke='%23B9852E' stroke-width='2.5'/%3E%3Cline x1='16' y1='34' x2='16' y2='40' stroke='%232F5233' stroke-width='2.5'/%3E%3Cline x1='32' y1='34' x2='32' y2='40' stroke='%232F5233' stroke-width='2.5'/%3E%3C/svg%3E" alt="Icon of an open book with a checklist">
+          <h3>Workshop series</h3>
+          <p>Monthly sessions on composting, seed starting, and season extension, taught by long-time members. Free for garden members, small fee for guests.</p>
+        </article>
+
+        <article class="program-card">
+          <img class="program-icon" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='18' cy='16' r='6' fill='%232F5233'/%3E%3Ccircle cx='32' cy='16' r='6' fill='%23B9852E'/%3E%3Cpath d='M8 40 C8 30 16 26 18 26 C20 26 28 30 28 40 Z' fill='%232F5233'/%3E%3Cpath d='M22 40 C22 30 30 26 32 26 C34 26 42 30 42 40 Z' fill='%23B9852E'/%3E%3C/svg%3E" alt="Icon of two people standing side by side">
+          <h3>Volunteer days</h3>
+          <p>No bed required. Show up on the first Saturday of the month to help with shared beds, compost turning, and pantry harvests.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="stories" aria-labelledby="stories-heading">
+    <div class="wrap">
+      <h2 id="stories-heading" class="section-head">What members say</h2>
+      <blockquote class="testimonial">
+        <p>&ldquo;I moved here knowing no one. My garden bed is still the reason I know my neighbors' names.&rdquo;</p>
+        <cite>&mdash; Priya R., member since 2023</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="alt" id="join" aria-labelledby="join-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="join-heading">Join the waitlist</h2>
+        <p>Tell us a little about what you're looking for and we'll follow up within a week. Fields marked <span class="required-flag">*</span> are required.</p>
+      </div>
+
+      <form class="form-shell" id="signup-form" novalidate>
+
+        <div class="field">
+          <label for="full-name">Full name <span class="required-flag">*</span></label>
+          <input type="text" id="full-name" name="full-name" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address <span class="required-flag">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-hint">
+          <p class="hint" id="email-hint">We'll send plot and workshop confirmations here.</p>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="phone-hint">
+          <p class="hint" id="phone-hint">Optional &mdash; only used for same-week volunteer reminders.</p>
+        </div>
+
+        <fieldset>
+          <legend>What are you interested in? <span class="required-flag">*</span></legend>
+          <div class="radio-option">
+            <input type="radio" id="interest-plot" name="interest" value="plot-rental" required>
+            <label for="interest-plot">Renting a plot</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="interest-workshop" name="interest" value="workshops">
+            <label for="interest-workshop">Attending workshops</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="interest-volunteer" name="interest" value="volunteering">
+            <label for="interest-volunteer">Volunteer days</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="start-date">Preferred start date</label>
+          <input type="date" id="start-date" name="start-date">
+        </div>
+
+        <div class="field">
+          <label for="notes">Anything else we should know?</label>
+          <textarea id="notes" name="notes" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Join the waitlist</button>
+
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>Terra &amp; Thyme</h3>
+        <p>A member-run community garden collective. Come dig in.</p>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#join">Join the waitlist</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div>
+        <h3>Visit us</h3>
+        <address style="font-style: normal;">
+          412 Elm Street Lot<br>
+          Open dawn to dusk, daily
+        </address>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>&copy; 2026 Terra &amp; Thyme Community Garden Collective.</p>
+      <p>Submission ID: &mu;ID &mdash; aaronbennyphilip@mulearn</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var form = document.getElementById('signup-form');
+    var status = document.getElementById('form-status');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      var name = document.getElementById('full-name').value.trim();
+      status.textContent = 'Thanks, ' + name + '. You are on the waitlist \u2014 check your inbox for a confirmation email.';
+      status.classList.add('visible');
+      form.reset();
+    });
+  })();
+</script>
+
+</body>
+</html>
