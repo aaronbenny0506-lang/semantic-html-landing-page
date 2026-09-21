@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terra &amp; Thyme Community Garden Collective</title>
+</head>
+<body>
+
+<header>
+  <h1>Terra &amp; Thyme</h1>
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section id="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">About the Garden</h2>
+    <p>Terra &amp; Thyme is a community garden collective. We turned an unused city lot into shared growing space with plots you can rent, workshops that teach you to use them well, and volunteer days that keep the garden thriving.</p>
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMjAwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjIwMCI+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNjZmU4ZjUiLz48Y2lyY2xlIGN4PSI1MjAiIGN5PSI0NSIgcj0iMjYiIGZpbGw9IiNmNmQ1NWMiLz48cmVjdCB5PSIxMjAiIHdpZHRoPSI2MDAiIGhlaWdodD0iODAiIGZpbGw9IiM4YmJmNmEiLz48ZyBmaWxsPSIjOGE1YTMzIj48cmVjdCB4PSI0MCIgeT0iMTMwIiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjQ1Ii8+PHJlY3QgeD0iMjI1IiB5PSIxMzAiIHdpZHRoPSIxNTAiIGhlaWdodD0iNDUiLz48cmVjdCB4PSI0MTAiIHk9IjEzMCIgd2lkdGg9IjE1MCIgaGVpZ2h0PSI0NSIvPjwvZz48ZyBmaWxsPSIjM2Y3ZDNhIj48Y2lyY2xlIGN4PSI2NSIgY3k9IjEyMiIgcj0iMTYiLz48Y2lyY2xlIGN4PSIxMDUiIGN5PSIxMTgiIHI9IjE4Ii8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTIzIiByPSIxNSIvPjxjaXJjbGUgY3g9IjI1MCIgY3k9IjEyMCIgcj0iMTciLz48Y2lyY2xlIGN4PSIyOTUiIGN5PSIxMTYiIHI9IjE5Ii8+PGNpcmNsZSBjeD0iMzQ1IiBjeT0iMTIyIiByPSIxNSIvPjxjaXJjbGUgY3g9IjQzNSIgY3k9IjEyMSIgcj0iMTYiLz48Y2lyY2xlIGN4PSI0ODAiIGN5PSIxMTciIHI9IjE4Ii8+PGNpcmNsZSBjeD0iNTMwIiBjeT0iMTIzIiByPSIxNSIvPjwvZz48ZyBmaWxsPSIjZDk0YjNkIj48Y2lyY2xlIGN4PSIxMDUiIGN5PSIxMTgiIHI9IjUiLz48Y2lyY2xlIGN4PSIyOTUiIGN5PSIxMTYiIHI9IjUiLz48Y2lyY2xlIGN4PSI0ODAiIGN5PSIxMTciIHI9IjUiLz48L2c+PC9zdmc+Cg==" alt="Illustration of three raised garden beds with vegetables growing under a sunny sky" width="600" height="200">
+  </section>
+
+  <section id="programs" aria-labelledby="programs-heading">
+    <h2 id="programs-heading">Our Programs</h2>
+    <article>
+      <h3>Plot Rental</h3>
+      <p>A raised bed of your own, water access, and a shared tool shed.</p>
+    </article>
+    <article>
+      <h3>Workshop Series</h3>
+      <p>Monthly sessions on composting, seed starting, and season extension.</p>
+    </article>
+    <article>
+      <h3>Volunteer Days</h3>
+      <p>No bed required. Join us on the first Saturday of every month.</p>
+    </article>
+  </section>
+
+  <section id="join" aria-labelledby="join-heading">
+    <h2 id="join-heading">Join the Waitlist</h2>
+    <form>
+      <p>
+        <label for="full-name">Full name</label>
+        <input type="text" id="full-name" name="full-name" autocomplete="name" required>
+      </p>
+
+      <p>
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </p>
+
+      <p>
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel">
+      </p>
+
+      <fieldset>
+        <legend>What are you interested in?</legend>
+        <p>
+          <input type="radio" id="interest-plot" name="interest" value="plot-rental" required>
+          <label for="interest-plot">Renting a plot</label>
+        </p>
+        <p>
+          <input type="radio" id="interest-workshop" name="interest" value="workshops">
+          <label for="interest-workshop">Attending workshops</label>
+        </p>
+        <p>
+          <input type="radio" id="interest-volunteer" name="interest" value="volunteering">
+          <label for="interest-volunteer">Volunteer days</label>
+        </p>
+      </fieldset>
+
+      <p>
+        <label for="start-date">Preferred start date</label>
+        <input type="date" id="start-date" name="start-date">
+      </p>
+
+      <p>
+        <label for="notes">Anything else we should know?</label>
+        <textarea id="notes" name="notes" rows="4"></textarea>
+      </p>
+
+      <button type="submit">Join the waitlist</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Terra &amp; Thyme Community Garden Collective</p>
+  <p>&mu;ID: aaronbennyphilip@mulearn</p>
+</footer>
+
+</body>
+</html>
